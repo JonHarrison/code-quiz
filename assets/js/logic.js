@@ -48,10 +48,11 @@ startButton.addEventListener("click", function(event) {
     secondsLeft = 75; // allow 75 seconds per game
     startTimer();
 
-    // hide start, show questions
+    // hide start, show questions and feedback
     startScreen.classList.add("hide");
     questionsScreen.classList.remove("hide");
-    
+    feedback.classList.remove("hide");
+
     // ask the first question
     askQuestion();
 });

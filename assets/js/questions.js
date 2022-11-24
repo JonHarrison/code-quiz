@@ -3,7 +3,7 @@
 // DoM objects
 const questionTitle = document.querySelector("#question-title");
 const choices = document.querySelector("#choices");
-const answer = document.querySelector("#answer");
+const feedback = document.querySelector("#feedback");
 
 // Constants
 const wrongAnswerTimePenalty = 10; // lose 10 seconds for an incorrect answer
@@ -48,7 +48,6 @@ function askQuestion() {
     // clear any existing question
     questionTitle.innerHTML = "";
     choices.innerHTML = "";
-    // retain previous answer answer.innerHTML = "";
 
     entry = questions[questionIndex];
     questionTitle.innerHTML = "Q" + (questionIndex+1) + ". " + entry.question;
@@ -65,7 +64,7 @@ function askQuestion() {
 function tooSlow() {
     log("tooSlow()");
     
-    answer.innerHTML = "A" + (questionIndex+1) + ". " + "Too slow!";
+    feedback.innerHTML = "A" + (questionIndex+1) + ". " + "Too slow!";
     nextQuestion();
 }
 
@@ -81,12 +80,12 @@ function checkAnswer(id,text) {
     // correct
     if (id === entry.answer)
     {
-        answer.innerHTML = "A" + (questionIndex+1) + ". " + "Correct!";
+        feedback.innerHTML = "A" + (questionIndex+1) + ". " + "Correct!";
         score++;
     }
     // incorrect
     else {
-        answer.innerHTML = "A" + (questionIndex+1) + ". " + "Wrong!";
+        feedback.innerHTML = "A" + (questionIndex+1) + ". " + "Wrong!";
         secondsLeft -= wrongAnswerTimePenalty; // lose time for an incorrect answer
     }
 
