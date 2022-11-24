@@ -35,6 +35,8 @@ const questions = [
         answer: "console.log"
     },
 ];
+const correct = new Audio("./assets/sfx/correct.wav");
+const incorrect = new Audio("./assets/sfx/incorrect.wav");
 
 // Variables
 var questionIndex = 0; // current question index in questions array
@@ -82,11 +84,13 @@ function checkAnswer(id,text) {
     {
         feedback.innerHTML = "A" + (questionIndex+1) + ". " + "Correct!";
         score++;
+        correct.play();
     }
     // incorrect
     else {
         feedback.innerHTML = "A" + (questionIndex+1) + ". " + "Wrong!";
         secondsLeft -= wrongAnswerTimePenalty; // lose time for an incorrect answer
+        incorrect.play();
     }
 
     // go to next question
