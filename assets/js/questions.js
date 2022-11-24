@@ -15,12 +15,12 @@ const questions = [
         answer: "alerts"
     },
     {
-        question: "The condition in an if / else statement is enclosed within ______.",
+        question: "The condition in an if / else statement is enclosed within ___________.",
         choices : [ "quotes", "curly brackets", "parenthesis", "square brackets" ],
         answer: "parenthesis"
     },
     {
-        question: "Arrays in JavaScript can be used to store ______.",
+        question: "Arrays in JavaScript can be used to store _________.",
         choices : [ "numbers and strings", "other arrays", "booleans", "all of the above" ],
         answer: "all of the above"
     },
