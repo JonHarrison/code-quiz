@@ -1,88 +1,69 @@
 # Module 6 Challenge Web APIs: Code Quiz
 
-## Your Task
+## Title
 
-As you proceed in your journey to becoming a front-end web developer, it’s likely that you’ll be asked to complete a coding assessment, perhaps as part of an interview process. A typical coding assessment is a combination of multiple-choice questions and interactive coding challenges. 
-
-To help you become familiar with these tests and give you a chance to apply the skills from this module, this week’s challenge invites you to build a timed coding quiz with multiple-choice questions. This app will run in the browser, and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean, polished, and responsive user interface. This week’s coursework has taught you all the skills you need to succeed in this challenge.
-
+A timed multiple-choice quiz featuring dynamically updated HTML and CSS powered by JavaScript.
 
 ## User Story
 
-```
-AS A coding boot camp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
+AS A coding boot camp student<br>
+I WANT to take a timed quiz on JavaScript fundamentals that stores high scores<br>
+SO THAT I can gauge my progress compared to my peers<br>
 
 ## Acceptance Criteria
 
-Create a code quiz that contains the following requirements:
+IT IS DONE when 
 
-* A start button that when clicked a timer starts and the first question appears.
- 
-  * Questions contain buttons for each answer.
-  * 
-  * When answer is clicked, the next question appears
-  * 
-  * If the answer clicked was incorrect then subtract time from the clock
-
-* The quiz should end when all questions are answered or the timer reaches 0.
-
-  * When the game ends, it should display their score and give the user the ability to save their initials and their score
+  * When a start button is clicked a timer starts and the first question appears.
+    * Questions contain buttons for each answer
+    * When an answer is clicked, the next question appears
+    * If the answer clicked was incorrect then time is subtracted from the clock
+  * The quiz ends when all questions are answered or the timer reaches 0.
+    * When the game ends, the player is shown their score and given the ability to save their initials and their score
   
-## Mock-Up
+## Tasks Completed
 
-The following animation demonstrates the application functionality:
+* Implemented the required solution in Javascript
+* Divided implementation into multiple functions across multiple files
+* Navigate through the quiz flow (start/questions/end) by tagging div elements with a hide class
+* Play correct/incorrect wav files using the Audio class
+* Allow 75 seconds for quiz, 15 seconds per question (5 questions), player is told if they are too slow in answering a question, penalty is 10 seconds for an incorrect answer, adds 1 to score for a correct answer and add any remaining time to score at the end
+* Maintains a (sorted) list of the 10 highest scores
+* The player is shown whether their answer is correct or incorrect (visually and audibly)
 
-![Animation of code quiz. Presses button to start quiz. Clicks the button for the answer to each question, displays if answer was correct or incorrect. Quiz finishes and displays high scores. User adds their intials, then clears their intials and starts over.](./assets/08-web-apis-challenge-demo.gif)
+## Challenges / Things I learnt
 
-## Grading Requirements
+* Use of querySelector
+* Use of get/setAttribute for data-*
+* use of classList.add/remove for 'hide'
+* Use of setInterval and clearInterval
+* Playing wav files using the Audio class
+* innerHTML and alterative methods of setting html elements
+* Using map to translate array objects onto html <li> and <button> elements
+* JSON.parse and JSON.stringify for maintaining a single localStorage element for the high score table
+* Use of ?? [] null coalescing operator
+* Use of splice for the top n highscore elements
+* Handing events and using event properties (target)
 
-This challenge is graded based on the following criteria: 
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the above acceptance criteria.
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository that contains application code.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the challenge instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality README file with description, screenshot, and link to deployed application.
+## Website image
 
 
-## Review
 
-You are required to submit BOTH of the following for review:
+## Technologies Used
 
-* The URL of the functional, deployed application.
+- HTML
+- CSS
+- Javascript
 
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
+## Links
 
----
-© 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+* [Link to the deployed website](https://jonharrison.github.io/code-quiz/)
+* [Link to the code repository](https://github.com/JonHarrison/code-quiz)
+
+## Contact
+
+If you have any questions, please contact me at :
+
+* GitHub profile : [JonHarrison](https://github.com/JonHarrison)
+* Email : [******]()
+* LinkedIn : [******]()
