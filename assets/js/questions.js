@@ -6,8 +6,6 @@ const choices = document.querySelector("#choices");
 const feedback = document.querySelector("#feedback");
 
 // Constants
-const wrongAnswerTimePenalty = 10; // lose 10 seconds for an incorrect answer
-const questionTimeout = 15; // allow 15 seconds for an answer
 const questions = [
     {
         question: "Commonly used data types DO NOT include:",
@@ -35,7 +33,10 @@ const questions = [
         answer: "console.log"
     },
 ];
-const correct = new Audio("./assets/sfx/correct.wav");
+const QUIZ_DURATION             = 75;
+const WRONG_ANSWER_TIME_PENALTY = 10; // lose 10 seconds for an incorrect answer
+const QUESTION_TIMEOUT          = (QUIZ_DURATION/questions.length); // allow 15 seconds for an answer
+const correct  = new Audio("./assets/sfx/correct.wav");
 const incorrect = new Audio("./assets/sfx/incorrect.wav");
 
 // Variables
@@ -94,7 +95,7 @@ function askQuestion() {
             break;
         }
 
-    timeout = setTimeout(tooSlow, 1000 * questionTimeout); // set timeout for answering question
+    timeout = setTimeout(tooSlow, 1000 * QUESTION_TIMEOUT); // set timeout for answering question
 }
 
 // user was too slow and didn't answer question before timeout expired
@@ -127,7 +128,7 @@ function checkAnswer(event) {
     // incorrect
     else {
         updateTextElement(feedback,"A" + (questionIndex+1) + ". " + "Wrong!");
-        secondsLeft -= wrongAnswerTimePenalty; // lose time for an incorrect answer
+        secondsLeft -= WRONG_ANSWER_TIME_PENALTY; // lose time for an incorrect answer
         incorrect.play();
     }
 

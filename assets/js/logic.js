@@ -11,6 +11,13 @@ const submitButton = document.querySelector("#submit");
 const initials = document.querySelector("#initials");
 
 // Constants
+// QUIZ_DURATION is in questions.js
+const NO_OF_HIGH_SCORES = 10;
+const HIGH_SCORES = 'highScores';
+
+// localStorage
+const highScoreString = localStorage.getItem(HIGH_SCORES);
+const highScores = JSON.parse(highScoreString) ?? []; // null coalescing operator gives initial empty array
 
 // Variables
 var timer; // holds time
@@ -44,7 +51,7 @@ startButton.addEventListener("click", function(event) {
     // reset score
     score = 0;
 
-    secondsLeft = 75; // allow 75 seconds per game
+    secondsLeft = QUIZ_DURATION; // total time allowed per game
     startTimer();
 
     // hide start, show questions and feedback
@@ -88,17 +95,6 @@ submitButton.addEventListener("click", function(event) {
     // navigate to the highscore table
     window.location.replace("highscores.html");
 });
-
-
-// would like this in logic.js but don't know how to call it
-
-// Constants
-const NO_OF_HIGH_SCORES = 10;
-const HIGH_SCORES = 'highScores';
-
-// localStorage
-const highScoreString = localStorage.getItem(HIGH_SCORES);
-const highScores = JSON.parse(highScoreString) ?? []; // null coalescing operator gives initial empty array
 
 // Add a new score
 function addScore(initials, score) {
