@@ -90,7 +90,7 @@ function askQuestion() {
             choices.append(...questionItems(entry));
             break;
         default:
-            log("unknown method");
+            error("askQuestions - unknown method");
             break;
         }
 
@@ -106,14 +106,15 @@ function tooSlow() {
 
 // evaluate user answer
 function checkAnswer(event) {
+    log("clearTimeout()");
+
     var element = event.target;
     var answer = element.getAttribute("data-answer");
     var choice = element.getAttribute("data-choice");
 
-    log("element : " , element);
+    debug("element : " , element);
     
     // reset timeout
-    log("clearTimeout()");
     clearTimeout(timeout);
     
     // correct

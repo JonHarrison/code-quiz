@@ -9,7 +9,6 @@ var clearButton = document.querySelector("#clear");
 const highScoreList = document.querySelector("#highscores");
 
 // Constants
-const log = console.log.bind(document);
 const NO_OF_HIGH_SCORES = 10;
 const HIGH_SCORES = 'highScores';
 
@@ -55,13 +54,13 @@ function updateScores(event) {
                 highScoreList.append(...highScoreItems(highScores));
                 break;
             default:
-                log("unknown method");
+                error("updateScores - unknown method");
                 break;
         }
     }
 }
 
-// update scores on load
+// update scores when windows is loaded
 window.addEventListener("load", updateScores);
 
 function unitTestScores() {

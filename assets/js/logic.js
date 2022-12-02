@@ -11,7 +11,6 @@ const submitButton = document.querySelector("#submit");
 const initials = document.querySelector("#initials");
 
 // Constants
-const log = console.log.bind(document);
 
 // Variables
 var timer; // holds time
