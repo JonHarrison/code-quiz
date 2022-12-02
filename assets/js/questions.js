@@ -50,7 +50,7 @@ function makeQuestionButton(choice,answer,text) {
     btn.setAttribute('data-choice',choice);
     btn.setAttribute('data-answer',answer);
     btn.textContent = text;
-    btn.onclick = function(event) { checkAnswer(event) };
+    // btn.onclick = function(event) { checkAnswer(event) };
     return btn;
 }
 
@@ -74,7 +74,7 @@ function askQuestion() {
             questionTitle.innerHTML = "Q" + (questionIndex+1) + ". " + entry.question;
             var innerHTML = "";
             for(let i=0; i < entry.choices.length; i++) {
-                innerHTML += '<button id="' + entry.choices[i] + '" data-state="' + entry.answer + '"' + ' onClick="checkAnswer(event)">' + (i+1) + ". " + entry.choices[i] + '</button>' + '\n';
+                innerHTML += '<button id="' + entry.choices[i] + '" data-state="' + entry.answer + '"' /* + ' onClick="checkAnswer(event)"'*/ + '>' + (i+1) + ". " + entry.choices[i] + '</button>' + '\n';
             }
             choices.innerHTML = innerHTML; // update questions all at once; additionally appending DoM innerHTML terminates any open tag
             break;
@@ -94,6 +94,8 @@ function askQuestion() {
             error("askQuestions - unknown method");
             break;
         }
+
+    choices.addEventListener("click", checkAnswer); // add click even handler to choices to catch button click events bubbling up from children
 
     timeout = setTimeout(tooSlow, 1000 * QUESTION_TIMEOUT); // set timeout for answering question
 }
