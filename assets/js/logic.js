@@ -11,7 +11,6 @@ const submitButton = document.querySelector("#submit");
 const initials = document.querySelector("#initials");
 
 // Constants
-// QUIZ_DURATION is in questions.js
 const NO_OF_HIGH_SCORES = 10;
 const HIGH_SCORES = 'highScores';
 
@@ -20,7 +19,7 @@ const highScoreString = localStorage.getItem(HIGH_SCORES);
 const highScores = JSON.parse(highScoreString) ?? []; // null coalescing operator gives initial empty array
 
 // Variables
-var timer; // holds time
+var timer; // holds timer
 var secondsLeft; // seconds remaining in quiz
 var score = 0; // user's score
 
@@ -51,6 +50,7 @@ startButton.addEventListener("click", function(event) {
     // reset score
     score = 0;
 
+    // QUIZ_DURATION is in questions.js
     secondsLeft = QUIZ_DURATION; // total time allowed per game
     startTimer();
 
@@ -78,7 +78,6 @@ function endGame() {
 
     // re-enable start button
     startButton.disabled = false;
-
 }
 
 // submit score
