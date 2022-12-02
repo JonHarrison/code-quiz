@@ -65,8 +65,7 @@ function askQuestion() {
 // user was too slow and didn't answer question before timeout expired
 function tooSlow() {
     log("tooSlow()");
-    
-    feedback.innerHTML = "A" + (questionIndex+1) + ". " + "Too slow!";
+    updateTextElement(feedback,"A" + (questionIndex+1) + ". " + "Sorry, you didn't answer in time!");
     nextQuestion();
 }
 
@@ -82,13 +81,13 @@ function checkAnswer(id,text) {
     // correct
     if (id === entry.answer)
     {
-        feedback.innerHTML = "A" + (questionIndex+1) + ". " + "Correct!";
+        updateTextElement(feedback,"A" + (questionIndex+1) + ". " + "Correct!");
         score++;
         correct.play();
     }
     // incorrect
     else {
-        feedback.innerHTML = "A" + (questionIndex+1) + ". " + "Wrong!";
+        updateTextElement(feedback,"A" + (questionIndex+1) + ". " + "Wrong!");
         secondsLeft -= wrongAnswerTimePenalty; // lose time for an incorrect answer
         incorrect.play();
     }
