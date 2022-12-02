@@ -14,11 +14,11 @@ SO THAT I can gauge my progress compared to my peers<br>
 
 IT IS DONE when 
 
-  * When a start button is clicked a timer starts and the first question appears.
+  * When a start button is clicked a timer starts and the first question appears
     * Questions contain buttons for each answer
     * When an answer is clicked, the next question appears
     * If the answer clicked was incorrect then time is subtracted from the clock
-  * The quiz ends when all questions are answered or the timer reaches 0.
+  * The quiz ends when all questions are answered or the timer reaches 0
     * When the game ends, the player is shown their score and given the ability to save their initials and their score
   
 ## Tasks Completed
@@ -27,22 +27,25 @@ IT IS DONE when
 * Divided implementation into multiple functions across multiple files
 * Navigate through the quiz flow (start/questions/end) by tagging div elements with a hide class
 * Play correct/incorrect wav files using the Audio class
-* Allow 75 seconds for quiz, 15 seconds per question (5 questions), player is told if they are too slow in answering a question, penalty is 10 seconds for an incorrect answer, adds 1 to score for a correct answer and add any remaining time to score at the end
-* Maintains a (sorted) list of the 10 highest scores
+* Allow 75 seconds for quiz, 15 seconds per question (5 questions)
+* Player is told if they are too slow in answering a question
 * The player is shown whether their answer is correct or incorrect (visually and audibly)
+* Penalty is 10 seconds for an incorrect answer
+* Add 1 to score for a correct answer and add any remaining time to score at the end (so completing the quiz faster scores higher)
+* Maintains a (sorted) list of the 10 highest scores
 
 ## Challenges / Things I learnt
 
 * Use of querySelector
-* Use of get/setAttribute for data-*
-* use of classList.add/remove for 'hide'
+* Use of getAttribute/setAttribute for data-*
+* use of classList.add / remove for 'hide'
 * Use of setInterval and clearInterval
 * Playing wav files using the Audio class
-* innerHTML and alterative methods of setting html elements
+* innerHTML and alternative methods of setting html elements
 * Using map to translate array objects onto html \<li\> and \<button\> elements
 * JSON.parse and JSON.stringify for maintaining a single localStorage element for the high score table
 * Use of ?? [] null coalescing operator
-* Use of splice for the top n highscore elements
+* Use of splice for the top n highscore entries
 * Handing events and using event properties (target)
 
 ## Website image
