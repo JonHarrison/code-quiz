@@ -68,7 +68,7 @@ function endGame() {
     clearInterval(timer); // stop setInterval timer
 
     score += secondsLeft; // add on remaining time
-    finalScore.innerHTML = score; // update score on DoM
+    updateTextElement(finalScore,score); // update score on DoM
 
     // re-enable start button
     startButton.disabled = false;
