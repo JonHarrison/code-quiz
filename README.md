@@ -39,7 +39,7 @@ IT IS DONE when
 * Use of setInterval and clearInterval
 * Playing wav files using the Audio class
 * innerHTML and alterative methods of setting html elements
-* Using map to translate array objects onto html <li> and <button> elements
+* Using map to translate array objects onto html <pre><li> and <button></pre> elements
 * JSON.parse and JSON.stringify for maintaining a single localStorage element for the high score table
 * Use of ?? [] null coalescing operator
 * Use of splice for the top n highscore elements
