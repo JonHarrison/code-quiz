@@ -51,6 +51,8 @@ IT IS DONE when
 
 ## Website image
 
+![Code quiz](https://user-images.githubusercontent.com/1043077/205377317-33432fb6-19ab-46e6-a43c-e6e9a7ba6d85.png)
+
 ![Watch the video](https://user-images.githubusercontent.com/1043077/205376283-b5bfc4f1-ac5c-4cf3-97bd-9f479b3209c7.mp4)
 
 ## Technologies Used
