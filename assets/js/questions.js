@@ -43,21 +43,56 @@ var questionIndex = 0; // current question index in questions array
 var entry = {}; // questions array entry used by askQuestions() and checkAnswer()
 var timeout = 0; // timeout for answering question
 
+// create question button object
+function makeQuestionButton(choice,answer,text) {
+    const btn = document.createElement('button');
+    btn.setAttribute('data-choice',choice);
+    btn.setAttribute('data-answer',answer);
+    btn.textContent = text;
+    btn.onclick = function(event) { checkAnswer(event) };
+    return btn;
+}
+
+// map question array to buttons
+function questionItems(entry){
+    return entry.choices.map((e,i) => makeQuestionButton(e,entry.answer,(i+1)+"."+e));
+}
+
 // display current question
 function askQuestion() {
     log("askQuestion()");
 
-    // clear any existing question
-    questionTitle.innerHTML = "";
-    choices.innerHTML = "";
-
     entry = questions[questionIndex];
-    questionTitle.innerHTML = "Q" + (questionIndex+1) + ". " + entry.question;
-    var innerHTML = "";
-    for(let i=0; i < entry.choices.length; i++) {
-        innerHTML += '<button id="' + entry.choices[i] + '" onClick="checkAnswer(this.id,this.textContent)">' + (i+1) + ". " + entry.choices[i] + '</button>' + '\n';
-    }
-    choices.innerHTML = innerHTML; // update questions all at once; additionally appending DoM innerHTML terminates any open tag
+
+    switch(method) {
+        case methods.innerHTML:
+            // clear any existing question
+            questionTitle.innerHTML = "";
+            choices.innerHTML = "";
+            // update with new content
+            questionTitle.innerHTML = "Q" + (questionIndex+1) + ". " + entry.question;
+            var innerHTML = "";
+            for(let i=0; i < entry.choices.length; i++) {
+                innerHTML += '<button id="' + entry.choices[i] + '" data-state="' + entry.answer + '"' + ' onClick="checkAnswer(event)">' + (i+1) + ". " + entry.choices[i] + '</button>' + '\n';
+            }
+            choices.innerHTML = innerHTML; // update questions all at once; additionally appending DoM innerHTML terminates any open tag
+            break;
+        case methods.alt:
+            // clear any existing question
+            questionTitle.textContent = "";
+            while (choices.firstElementChild) {
+                choices.firstElementChild.remove();
+            }
+            // update with new content
+            // Inspired by
+            // https://marian-caikovski.medium.com/modern-alternatives-to-innerhtml-and-appendchild-296b9e5a5d28
+            questionTitle.append("Q" + (questionIndex+1) + ". " + entry.question);
+            choices.append(...questionItems(entry));
+            break;
+        default:
+            log("unknown method");
+            break;
+        }
 
     timeout = setTimeout(tooSlow, 1000 * questionTimeout); // set timeout for answering question
 }
@@ -70,16 +105,19 @@ function tooSlow() {
 }
 
 // evaluate user answer
-function checkAnswer(id,text) {
-    log("checkAnswer(" + id + "," + text + ")");
-    log("answer : " + entry.answer);
+function checkAnswer(event) {
+    var element = event.target;
+    var answer = element.getAttribute("data-answer");
+    var choice = element.getAttribute("data-choice");
 
+    log("element : " , element);
+    
     // reset timeout
     log("clearTimeout()");
     clearTimeout(timeout);
     
     // correct
-    if (id === entry.answer)
+    if (choice === answer)
     {
         updateTextElement(feedback,"A" + (questionIndex+1) + ". " + "Correct!");
         score++;
