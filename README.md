@@ -47,6 +47,7 @@ IT IS DONE when
 * Use of ?? [] null coalescing operator
 * Use of splice for the top n highscore entries
 * Handing events and using event properties (target)
+* Event bubbling from choice buttons up to choices parent
 
 ## Website image
 
