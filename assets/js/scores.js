@@ -23,6 +23,16 @@ clearButton.addEventListener("click", function(event) {
     updateScores();
 });
 
+function makeHighscoreListItem(initials,score) {
+    const li = document.createElement('li');
+    li.textContent = initials + '-' + score;
+    return li;
+}
+
+function highScoreItems(highScores) {
+    return highScores.map((e,i) => makeHighscoreListItem(e.initials,e.score));
+}
+
 // Update scores on DoM
 function updateScores(event) {
     log("updateScores()");
@@ -31,12 +41,23 @@ function updateScores(event) {
     const highScores = JSON.parse(highScoreString) ?? []; // null coalescing operator gives initial empty array
 
     if (highScores.length === 0) {
-        highScoreList.innerHTML = "The scoreboard is empty!";
+        updateTextElement(highScoreList,"The scoreboard is empty!");
     }
     else {
-        highScoreList.innerHTML = highScores
-            .map((score) => `<li>${score.initials} - ${score.score}</li>`)
-            .join('');
+        switch (method)
+        {
+            case methods.innerHTML:
+                highScoreList.innerHTML = highScores
+                .map((score) => `<li>${score.initials} - ${score.score}</li>`)
+                .join(''); // join array into a single string without ',' separator
+                break;
+            case methods.alt:
+                highScoreList.append(...highScoreItems(highScores));
+                break;
+            default:
+                log("unknown method");
+                break;
+        }
     }
 }
 
