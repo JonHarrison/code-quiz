@@ -23,7 +23,7 @@ var timer; // holds timer
 var secondsLeft; // seconds remaining in quiz
 var score = 0; // user's score
 
-// The setTimer function starts and stops the timer and triggers endGame()
+// The startTimer function starts and stops the timer and triggers endGame()
 function startTimer() {
     log("startTimer()");
     // Sets timer
